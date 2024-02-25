@@ -1,14 +1,14 @@
 let amigos = [];
 
 
-function adicionar() {
-    let nome = document.getElementById('nome-amigo').value.trim(); // Remova os espaços em branco no início e no final
+/*function adicionar() {
+    let nome = document.getElementById('nome-amigo').value.trim().toUpperCase(); // Remova os espaços em branco no início e no final
     if (nome === '') {
         alert("Por favor, insira um nome válido para o amigo.");
         return;
     }
 
-    if(amigos.includes(nome.value)){
+    if(amigos.includes(nome)){
         alert("Nome já adicionado. Insira um complemento!");
         return;
     }
@@ -23,7 +23,35 @@ function adicionar() {
         lista.textContent = lista.textContent + ', ' + nome;
     }
     document.getElementById('nome-amigo').value = '';
+}*/
+
+function adicionar() {
+    let nome = capitalizeFirstLetter(document.getElementById('nome-amigo').value.trim()); // Capitaliza a primeira letra
+    if (nome === '') {
+        alert("Por favor, insira um nome válido para o amigo.");
+        return;
+    }
+
+    if(amigos.includes(nome)){
+        alert("Nome já adicionado. Insira um complemento!");
+        return;
+    }
+
+    let lista = document.getElementById('lista-amigos');
+    amigos.push(nome);
+
+    if (lista.textContent == '') {
+        lista.textContent = nome;
+    } else {
+        lista.textContent = lista.textContent + ', ' + nome;
+    }
+    document.getElementById('nome-amigo').value = '';
 }
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 
 
 function sortear() {
