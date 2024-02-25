@@ -7,9 +7,15 @@ function adicionar() {
         alert("Por favor, insira um nome válido para o amigo.");
         return;
     }
-    
+
+    if(amigos.includes(nome.value)){
+        alert("Nome já adicionado. Insira um complemento!");
+        return;
+    }
+
     let lista = document.getElementById('lista-amigos');
     amigos.push(nome);
+
 
     if (lista.textContent == '') {
         lista.textContent = nome;
