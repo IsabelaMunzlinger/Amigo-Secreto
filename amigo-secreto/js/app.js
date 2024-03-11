@@ -34,6 +34,8 @@ function sortear() {
         return;
     }
 
+    document.getElementById('lista-sorteio').innerHTML = '';
+
     embaralha(amigos);
 
     let sorteio = document.getElementById('lista-sorteio');
